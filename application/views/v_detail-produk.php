@@ -2,8 +2,8 @@
         <div class="page-title d-flex">
           <i data-feather="plus" class="menu-sub-icon"></i>
           <div class="d-block">
-           <h3>Tambah Produk Hukum</h3>
-           <p class="text-subtitle text-muted">Tambah produk hukum </p>
+           <h3>Edit Produk Hukum</h3>
+           <p class="text-subtitle text-muted">Edit produk hukum </p>
          </div>
        </div>
        <?php 

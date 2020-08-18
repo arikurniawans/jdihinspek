@@ -27,19 +27,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php for ($i=0; $i < 1 ; $i++) { ?>
+                    <?php foreach($produk as $a){ ?>
                         <tr>
-
-                          <td><input type="checkbox" class=" form-check-input"></td>
-                          <td>Perda</td>
-                          <td>Bentuk lambang daerah</td>
-                          <td>Masi berlaku</td>
-                          <td>Provinsi Lampung</td>
+                          <td></td>
+                          <td><?php if($a->jenis_produk == 1){echo "PERDA";}else if($a->jenis_produk == 2){echo "PERGUB";}else if($a->jenis_produk == 3){echo "KEPGUB";
+									}else if($a->jenis_produk == 4){echo "INSGUB";}else if($a->jenis_produk == 5){echo "SKGUB";}else if($a->jenis_produk == 6){echo "MoU";} ?></td>
+                          <td><?php echo strtoupper($a->judul_produk); ?></td>
+                          <td><?php echo strtoupper($a->status); ?></td>
+                          <td><?php echo $a->wilayah; ?></td>
                           <td>
-                            <a href="detail-produk-hukum.php" class="btn btn-secondary cs-btn">
+                            <a href="" class="btn btn-secondary cs-btn">
                                 <i data-feather="eye"></i>
                             </a>
-                            <a href="edit-produk-hukum.php" class="btn btn-primary cs-btn">
+                            <a href="<?php echo base_url(); ?>produkhukum/editprodukhukum/<?php echo $a->id_produk; ?>" class="btn btn-primary cs-btn">
                                 <i data-feather="edit-3"></i>
                             </a>
                             <a href="#" data-toggle="modal" data-target="#border-less-delete" class="btn btn-danger cs-btn">

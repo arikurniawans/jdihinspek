@@ -32,5 +32,5 @@ aria-labelledby="myModalLabel1" aria-hidden="true">
 <script src="<?php echo base_url(); ?>assets/vendors/datepicker/datepicker.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 <script>
-  $('.input-group.date').datepicker({format: "dd-mm-yyyy"}); 
+  $('.input-group.date').datepicker({format: "yyyy-mm-dd"}); 
 </script>

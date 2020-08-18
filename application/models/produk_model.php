@@ -13,4 +13,13 @@ class produk_model extends CI_Model
     {
         $this->db->insert('produkhukum_tb',$data);
     }
+	
+	public function lihatproduk()
+    {
+        $this->db->select('*');
+		$this->db->from('produkhukum_tb');
+		$this->db->order_by('id_produk ');
+		$query = $this->db->get();
+		return $query;
+    }
 }
