@@ -13,13 +13,29 @@ class produk_model extends CI_Model
     {
         $this->db->insert('produkhukum_tb',$data);
     }
+
+    public function ubahproduk($id,$data)
+    {
+        $this->db->where('id_produk',$id);
+        $this->db->update('produkhukum_tb',$data);
+    }
+
+    public function hapusproduk($id)
+    {
+        $this->db->where('id_produk',$id);
+        $this->db->delete('produkhukum_tb');
+    }
 	
 	public function lihatproduk()
     {
-        $this->db->select('*');
-		$this->db->from('produkhukum_tb');
-		$this->db->order_by('id_produk ');
-		$query = $this->db->get();
+        $query = $this->db->get('produkhukum_tb');
+		$this->db->order_by('id_produk');
+		return $query;
+    }
+
+    public function detailproduk($data)
+    {
+        $query =  $this->db->get_where('produkhukum_tb',array('id_produk' => $data));
 		return $query;
     }
 }

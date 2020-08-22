@@ -36,13 +36,13 @@
                           <td><?php echo strtoupper($a->status); ?></td>
                           <td><?php echo $a->wilayah; ?></td>
                           <td>
-                            <a href="" class="btn btn-secondary cs-btn">
+                            <a href="<?php echo base_url(); ?>produkhukum/detailprodukhukum/<?php echo $a->id_produk; ?>" class="btn btn-secondary cs-btn">
                                 <i data-feather="eye"></i>
                             </a>
                             <a href="<?php echo base_url(); ?>produkhukum/editprodukhukum/<?php echo $a->id_produk; ?>" class="btn btn-primary cs-btn">
                                 <i data-feather="edit-3"></i>
                             </a>
-                            <a href="#" data-toggle="modal" data-target="#border-less-delete" class="btn btn-danger cs-btn">
+                            <a href="<?php echo base_url(); ?>produkhukum/deleteproduk/<?php echo $a->id_produk; ?>" onclick="return confirm('Anda yakin akan menghapus produk hukum berikut ?')" class="btn btn-danger cs-btn">
                                 <i data-feather="trash-2"></i>
                             </a>
                         </td>    

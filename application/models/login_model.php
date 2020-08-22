@@ -43,23 +43,23 @@ class login_model extends CI_Model
         }
     }
 
-    public function create_user($data) {
-        date_default_timezone_set('Asia/Jakarta');
+    // public function create_user($data) {
+    //     date_default_timezone_set('Asia/Jakarta');
 
-        $data = array(
-         'nama_lengkap' => 'Administrator',
-         'username'     => $data['username'],
-         'password'  => $this->hash_password($data['password']),
-         'confirm_password'  => $this->hash_password($data['password']),
-         'role'  => 'staff',
-         'created_at' => date('Y-m-d H:i:s'),
-        );
-        return $this->db->insert('user_tb', $data);
-       }
+    //     $data = array(
+    //      'nama_lengkap' => 'Administrator',
+    //      'username'     => $data['username'],
+    //      'password'  => $this->hash_password($data['password']),
+    //      'confirm_password'  => $this->hash_password($data['password']),
+    //      'role'  => 'staff',
+    //      'created_at' => date('Y-m-d H:i:s'),
+    //     );
+    //     return $this->db->insert('user_tb', $data);
+    //    }
 
-    private function hash_password($pass_user)
-    {
-        return password_hash($pass_user, PASSWORD_BCRYPT);
-    }
+    // private function hash_password($pass_user)
+    // {
+    //     return password_hash($pass_user, PASSWORD_BCRYPT);
+    // }
 
 }

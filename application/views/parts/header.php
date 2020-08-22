@@ -26,7 +26,6 @@
             </div>
             <div class="sidebar-menu">
                 <ul class="menu">
-
                     <li class='sidebar-title'>Main Menu</li>
 
                     <li class="sidebar-item">
@@ -47,9 +46,12 @@
                             <li>
                                 <a href="<?php echo base_url(); ?>produkhukum">Daftar produk Hukum</a>
                             </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>produkhukum/addprodukhukum">Add produk Hukum</a>
+                            </li>
                         </ul>
                     </li>
-
+                    <?php if($this->session->userdata('role') == "admin"){ ?>
                     <li class="sidebar-item  has-sub">
                         <a href="#" class='sidebar-link'>
                             <i data-feather="users" width="20"></i> 
@@ -58,18 +60,19 @@
                         <ul class="submenu ">
 
                             <li>
-                                <a href="list-user.php">Daftar User</a>
+                                <a href="<?php echo base_url(); ?>users">Daftar User</a>
                             </li>
                             <li>
-                                <a href="input-new-user.php">Tambah User</a>
+                                <a href="<?php echo base_url(); ?>users/addusers">Add User</a>
                             </li>
 
                         </ul>
                     </li>
+                    <?php } ?>
 
 
                     <li class="sidebar-item">
-                        <a href="profile-saya.php" class='sidebar-link'>
+                        <a href="<?php echo base_url(); ?>users/profilusers" class='sidebar-link'>
                             <i data-feather="user" width="20"></i> 
                             <span>Profile Saya</span>
                         </a>
@@ -113,7 +116,7 @@
                             <div class="user-txt">Hi, <?php echo $this->session->userdata('nama_lengkap'); ?></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="profile-saya.php">
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>users/profilusers">
                                 <i data-feather="user"></i> Profile Saya
                             </a>
                             <div class="dropdown-divider"></div>
