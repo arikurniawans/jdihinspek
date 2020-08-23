@@ -26,11 +26,20 @@ class produk_model extends CI_Model
         $this->db->delete('produkhukum_tb');
     }
 	
-	public function lihatproduk()
+	public function lihatproduk($iduser,$role)
     {
-        $query = $this->db->get('produkhukum_tb');
-		$this->db->order_by('id_produk');
-		return $query;
+        if($role == "admin")
+        {
+            $query = $this->db->get('produkhukum_tb');
+            $this->db->order_by('id_produk','DESC');
+            return $query;
+        }
+        else
+        {
+            $query = $this->db->get_where('produkhukum_tb',array('id_user' => $iduser));
+            $this->db->order_by('id_produk','DESC');
+            return $query;
+        }
     }
 
     public function detailproduk($data)

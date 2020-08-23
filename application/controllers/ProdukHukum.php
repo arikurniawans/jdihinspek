@@ -20,7 +20,10 @@ class ProdukHukum extends CI_Controller {
 
 	public function index()
     {
-		$data['produk'] = $this->produk_model->lihatproduk()->result();
+        $role = $this->session->userdata('role');
+        $iduser = $this->session->userdata('id_user');
+
+		$data['produk'] = $this->produk_model->lihatproduk($iduser,$role)->result();
         $this->load->view('parts/header');
 		$this->load->view('v_produk-hukum',$data);
 		$this->load->view('parts/footer');
@@ -95,10 +98,12 @@ class ProdukHukum extends CI_Controller {
             $data['created_at'] = $tanggal;
             $data['updated_at'] = $tanggal;
             $this->produk_model->simpanproduk($data);
-            $dataproduk['produk'] = $this->produk_model->lihatproduk()->result();
-			$this->load->view('parts/header');
-			$this->load->view('v_produk-hukum',$dataproduk);
-            $this->load->view('parts/footer');
+
+            // $dataproduk['produk'] = $this->produk_model->lihatproduk()->result();
+			// $this->load->view('parts/header');
+			// $this->load->view('v_produk-hukum',$dataproduk);
+            // $this->load->view('parts/footer');
+            redirect('produkhukum');
                 
 		}
         
@@ -146,10 +151,11 @@ class ProdukHukum extends CI_Controller {
             $data['updated_at'] = $tanggal;
             $this->produk_model->ubahproduk($id,$data);
 
-            $dataproduk['produk'] = $this->produk_model->lihatproduk()->result();
-            $this->load->view('parts/header');
-            $this->load->view('v_produk-hukum',$dataproduk);
-            $this->load->view('parts/footer');
+            // $dataproduk['produk'] = $this->produk_model->lihatproduk()->result();
+            // $this->load->view('parts/header');
+            // $this->load->view('v_produk-hukum',$dataproduk);
+            // $this->load->view('parts/footer');
+            redirect('produkhukum');
 
         }else{
             $target = './produk_hukum/'.$produk->file_produk;
@@ -189,10 +195,11 @@ class ProdukHukum extends CI_Controller {
                 $data['updated_at'] = $tanggal;
                 $this->produk_model->ubahproduk($id,$data);
 
-                $dataproduk['produk'] = $this->produk_model->lihatproduk()->result();
-                $this->load->view('parts/header');
-                $this->load->view('v_produk-hukum',$dataproduk);
-                $this->load->view('parts/footer');
+                // $dataproduk['produk'] = $this->produk_model->lihatproduk()->result();
+                // $this->load->view('parts/header');
+                // $this->load->view('v_produk-hukum',$dataproduk);
+                // $this->load->view('parts/footer');
+                redirect('produkhukum');
                     
             }
         }
@@ -205,10 +212,11 @@ class ProdukHukum extends CI_Controller {
         unlink($target);
         $this->produk_model->hapusproduk($id);
 
-        $dataproduk['produk'] = $this->produk_model->lihatproduk()->result();
-        $this->load->view('parts/header');
-        $this->load->view('v_produk-hukum',$dataproduk);
-        $this->load->view('parts/footer');
+        // $dataproduk['produk'] = $this->produk_model->lihatproduk()->result();
+        // $this->load->view('parts/header');
+        // $this->load->view('v_produk-hukum',$dataproduk);
+        // $this->load->view('parts/footer');
+        redirect('produkhukum');
     }
 
 
