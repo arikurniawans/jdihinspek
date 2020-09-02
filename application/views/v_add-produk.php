@@ -9,9 +9,9 @@
        <?php 
         if(isset($error))
         {
-            echo "ERROR UPLOAD : <br/>";
+            echo "<font color='red'>ERROR UPLOAD : <br/>";
             print_r($error);
-            echo "<hr/>";
+            echo "</font><hr/>";
         }
         ?>
        <section class="section">
