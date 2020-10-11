@@ -45,9 +45,10 @@
   </button>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Kantor Inspektorat Provinsi Lampung</a>
+    <font color="white">Halo, <?php echo $this->session->userdata('nama_lengkap'); ?></font>&nbsp;<a href="<?php echo base_url(); ?>login/signoutuser" class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</a>
     </li>
   </ul>
+  
 </nav>
 
 <div class="container-fluid">

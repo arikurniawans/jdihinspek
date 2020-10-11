@@ -27,9 +27,25 @@ class Login extends CI_Controller {
        }
     }
 
+    public function signinuser(){
+        if($this->login_model->logged_in()){
+            //jika memang session sudah terdaftar
+            redirect('main');
+        } else {
+            $in['username'] = $this->input->post('username');
+            $in['password'] = $this->input->post('password');
+            $this->login_model->check_loginuser($in);
+       }
+    }
+
     public function signout(){
         $this->session->sess_destroy();
 		redirect('login');
+    }
+
+    public function signoutuser(){
+        $this->session->sess_destroy();
+		redirect('loginuser');
     }
 
 }
